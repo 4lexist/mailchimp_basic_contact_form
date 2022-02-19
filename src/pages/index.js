@@ -20,6 +20,9 @@ import {
 const Header = styled.header`
   display: flex;
   width: 100%;
+  position: sticky;
+  top: 0;
+  background: #f3f3f3;
 
   padding: 0.8rem 2rem;
   @media (min-width: ${minTablet}px) {
@@ -113,6 +116,12 @@ const SignUpText = styled.p`
   }
 `
 
+const Menu = styled.nav`
+  position: absolute;
+  right: 2.4rem;
+  text-align: right;
+`
+
 const MB24 = styled.div`
   margin-bottom: 2.4rem;
 `
@@ -121,8 +130,10 @@ const ContactPage = () => {
   const isDesktop = useDesktopMediaQuery()
   const isMobile = useMobileMediaQuery()
 
+  const [isMenuVisible, setMenuVisible] = React.useState(true)
+
   return (
-    <>
+    <div onClick={isMenuVisible ? () => setMenuVisible(false) : null}>
       <GlobalStyles />
       <Header>
         <LogoContainer>
@@ -152,9 +163,25 @@ const ContactPage = () => {
                 </li>
               )}
               <ButtonLi>
-                <button>
+                <button onClick={() => setMenuVisible(x => !x)}>
                   <Hamburger />
                 </button>
+                {isMenuVisible && (
+                  <Menu>
+                    <ul>
+                      <li>{isMobile && <a href="#">Outboard motor</a>}</li>
+                      <li>
+                        <a href="#">Inboard motor</a>
+                      </li>
+                      <li>
+                        <a href="#">About</a>
+                      </li>
+                      <li>
+                        <a href="#">Contact</a>
+                      </li>
+                    </ul>
+                  </Menu>
+                )}
               </ButtonLi>
             </ul>
           )}
@@ -176,7 +203,7 @@ const ContactPage = () => {
         </TitleContainer>
         <MailchimpForm />
       </Main>
-    </>
+    </div>
   )
 }
 

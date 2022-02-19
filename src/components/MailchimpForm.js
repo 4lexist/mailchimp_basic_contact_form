@@ -54,6 +54,10 @@ const SendButton = styled.button`
   width: 28rem;
   color: #ffffff;
   text-transform: uppercase;
+
+  &:disabled {
+    background: #cecece;
+  }
 `
 
 const MB55 = styled.div`
@@ -74,8 +78,7 @@ const Form = ({ status, message, onValidated }) => {
     firstName: "",
     lastName: "",
     phoneNumber: "",
-    country: "",
-    message: "",
+    country: "🇳🇱	Netherlands",
   })
   const [isChecked, setChecked] = React.useState(false)
 
@@ -94,7 +97,6 @@ const Form = ({ status, message, onValidated }) => {
     //   firstName &&
     //   lastName &&
     //   email.indexOf("@") > -1 &&
-    console.log("form", form)
 
     onValidated({
       MERGE0: form.email,
@@ -103,9 +105,6 @@ const Form = ({ status, message, onValidated }) => {
       MERGE4: form.phoneNumber,
     })
   }
-
-  console.log("status", status)
-  console.log("message", message)
 
   return (
     <form onSubmit={handleSubmit}>
@@ -143,9 +142,10 @@ const Form = ({ status, message, onValidated }) => {
       </MB24>
       <MB24>
         <Input
-          label="Email"
+          label="Email *"
           id="email"
-          type="text"
+          required
+          type="email"
           placeholder="Enter email"
           value={form.email}
           onChange={handleInputChange}
@@ -185,7 +185,12 @@ const Form = ({ status, message, onValidated }) => {
           </Label>
         </CheckboxContainer>
       </MB55>
-      <SendButton type="submit">Send</SendButton>
+      <SendButton
+        type="submit"
+        disabled={status === "sending" || status === "loading" || !isChecked}
+      >
+        Send
+      </SendButton>
     </form>
   )
 }
