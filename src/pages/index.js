@@ -17,6 +17,7 @@ import {
   useMobileMediaQuery,
   useTabletMediaQuery,
 } from "../styles/breakpoints"
+import SelectCountry from "../components/SelectCountry"
 
 const Header = styled.header`
   display: flex;
@@ -197,6 +198,8 @@ const ContactPage = () => {
     }))
   }
 
+  console.log("form", form)
+
   return (
     <>
       <GlobalStyles />
@@ -298,14 +301,10 @@ const ContactPage = () => {
                 autoCapitalize="off"
                 autoCorrect="off"
               />
-              <Input
-                label="Country"
-                id="country"
-                type="text"
+              <SelectCountry
+                placeholder="Please select"
                 value={form.country}
                 onChange={handleInputChange}
-                autoCapitalize="on"
-                autoCorrect="off"
               />
             </FlexInputContainer>
           </MB40>
