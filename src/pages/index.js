@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react"
+import PropelLogo from "../assets/brandmark.svg"
 
 const ContactPage = () => {
   const [form, setForm] = React.useState({
@@ -23,7 +24,10 @@ const ContactPage = () => {
   return (
     <>
       <header>
-        <div>LOGO propel</div>
+        <div>
+          <PropelLogo />
+          propel
+        </div>
         <nav>
           <ul>
             <li>Outboard motor</li>
