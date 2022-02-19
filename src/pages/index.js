@@ -1,7 +1,7 @@
-import React, { useRef, useState } from "react"
+import React from "react"
 import styled from "styled-components"
 
-import Input from "../components/Input"
+import MailchimpForm from "../components/MailchimpForm"
 
 import PropelLogo from "../assets/brandmark.svg"
 import PropelLogoAndName from "../assets/logo_and_name.svg"
@@ -15,9 +15,7 @@ import {
   minTablet,
   useDesktopMediaQuery,
   useMobileMediaQuery,
-  useTabletMediaQuery,
 } from "../styles/breakpoints"
-import SelectCountry from "../components/SelectCountry"
 
 const Header = styled.header`
   display: flex;
@@ -115,62 +113,6 @@ const SignUpText = styled.p`
   }
 `
 
-const FlexInputContainer = styled.div`
-  & > * {
-    margin-bottom: 2.4rem;
-  }
-  @media (min-width: ${minTablet}px) {
-    display: flex;
-    & > * {
-      margin-bottom: 0;
-      margin-right: 2rem;
-      &:last-child {
-        margin-right: 0;
-      }
-    }
-  }
-`
-
-const CheckboxContainer = styled.div`
-  display: flex;
-  align-items: center;
-  max-width: 80%;
-  @media (min-width: ${minDesktopL}px) {
-    max-width: 50%;
-  }
-
-  & > label {
-    width: 100%;
-  }
-`
-
-const Checkbox = styled.input`
-  width: 32px;
-  height: 32px;
-  margin-right: 16px;
-`
-
-const SendButton = styled.button`
-  background: #242424;
-  border-radius: 500px;
-  padding: 1.8rem 1.6rem;
-  width: 28rem;
-  color: #ffffff;
-  text-transform: uppercase;
-`
-
-const MB96 = styled.div`
-  margin-bottom: 9.6rem;
-`
-
-const MB55 = styled.div`
-  margin-bottom: 5.5rem;
-`
-
-const MB40 = styled.div`
-  margin-bottom: 4rem;
-`
-
 const MB24 = styled.div`
   margin-bottom: 2.4rem;
 `
@@ -178,27 +120,6 @@ const MB24 = styled.div`
 const ContactPage = () => {
   const isDesktop = useDesktopMediaQuery()
   const isMobile = useMobileMediaQuery()
-
-  const [form, setForm] = React.useState({
-    email: "",
-    firstName: "",
-    lastName: "",
-    phoneNumber: "",
-    country: "",
-    message: "",
-  })
-  const [isChecked, setChecked] = React.useState(false)
-
-  const handleInputChange = event => {
-    const { name, value } = event.target
-
-    setForm(form => ({
-      ...form,
-      [name]: value,
-    }))
-  }
-
-  console.log("form", form)
 
   return (
     <>
@@ -253,77 +174,7 @@ const ContactPage = () => {
             products.
           </SignUpText>
         </TitleContainer>
-        <form>
-          <MB24>
-            <FlexInputContainer>
-              <Input
-                label="First name"
-                id="firstName"
-                type="text"
-                placeholder="Enter first name"
-                value={form.firstName}
-                onChange={handleInputChange}
-                autoCapitalize="on"
-                autoCorrect="off"
-              />
-              <Input
-                label="Last name"
-                id="lastName"
-                type="text"
-                placeholder="Enter last name"
-                value={form.lastName}
-                onChange={handleInputChange}
-                autoCapitalize="on"
-                autoCorrect="off"
-              />
-            </FlexInputContainer>
-          </MB24>
-          <MB24>
-            <Input
-              label="Email"
-              id="email"
-              type="text"
-              placeholder="Enter email"
-              value={form.email}
-              onChange={handleInputChange}
-              autoCapitalize="off"
-              autoCorrect="off"
-            />
-          </MB24>
-          <MB40>
-            <FlexInputContainer>
-              <Input
-                label="Phone Number"
-                id="phoneNumber"
-                type="tel"
-                value={form.phoneNumber}
-                onChange={handleInputChange}
-                autoCapitalize="off"
-                autoCorrect="off"
-              />
-              <SelectCountry
-                placeholder="Please select"
-                value={form.country}
-                onChange={handleInputChange}
-              />
-            </FlexInputContainer>
-          </MB40>
-          <MB55>
-            <CheckboxContainer>
-              <Checkbox
-                type="checkbox"
-                id="checkbox"
-                name="checkbox"
-                checked={isChecked}
-                onClick={() => setChecked(c => !c)}
-              />
-              <Label htmlFor="checkbox">
-                Select this box if we can contact your email with updates
-              </Label>
-            </CheckboxContainer>
-          </MB55>
-          <SendButton type="submit">Send</SendButton>
-        </form>
+        <MailchimpForm />
       </Main>
     </>
   )
