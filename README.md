@@ -19,16 +19,23 @@ your own url
    GATSBY_MAILCHIMP_SUBSCRIBE_URL='https://[XXX].list-manage.com/subscribe/post?u=[XXX]&amp;id=[XXX]'
    ```
 
+2. **Install the node_modules**
 
-2. **Run the project**
+   Navigate into the directory and run command below
 
-    Navigate into the directory and run command below
+    ```shell
+    npm install
+    ```
+
+3. **Run the project**
+
+    If not already in the directory, navigate there and run command below
 
     ```shell
     gatsby develop
     ```
 
-3. **Open the browser**
+4. **Open the browser**
 
     The site is now accessible at `http://localhost:8000`
 
