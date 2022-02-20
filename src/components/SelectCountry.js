@@ -1,13 +1,14 @@
 import React from "react"
 import styled from "styled-components"
 
-import { COUNTRIES } from "../assets/countries.list"
+import { COUNTRIES } from "../constants/countries.list"
 
 const Container = styled.div`
   width: 100%;
 `
 
 const Label = styled.label`
+  font-family: "NB International Pro", monospace, sans-serif;
   text-transform: uppercase;
   display: block;
   font-size: 1.4rem;

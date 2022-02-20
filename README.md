@@ -1,105 +1,88 @@
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
-<p align="center">
-  <a href="https://www.gatsbyjs.com">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby's hello-world starter
-</h1>
+Hello, here is my submission for the task, you can find below how to run the project,
+what improvements I would focus on given more time, and what decisions I took to fit in 4h
 
-Kick off your project with this hello-world boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
+## Context
 
-_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.com/docs/gatsby-starters/)._
+The task was to create a form to subscribe to a newsletter using Mailchimp. 
+The main requirements were to make the contact page responsive and to plug the 
+form with Mailchimp API. Bonus would have been to add animations to make the page more stylish.  
 
-## 🚀 Quick start
 
-1.  **Create a Gatsby site.**
+## Quick start
 
-    Use the Gatsby CLI ([install instructions](https://www.gatsbyjs.com/docs/tutorial/part-0/#gatsby-cli)) to create a new site, specifying the hello-world starter.
+1. **Add the mailchimp url**
 
-    ```shell
-    # create a new Gatsby site using the hello-world starter
-    gatsby new my-hello-world-starter https://github.com/gatsbyjs/gatsby-starter-hello-world
-    ```
+    Create a `.env` file at the root of the project and populate it with the following while making sure to replace with
+your own url
 
-1.  **Start developing.**
+   ```
+   GATSBY_MAILCHIMP_SUBSCRIBE_URL='https://[XXX].list-manage.com/subscribe/post?u=[XXX]&amp;id=[XXX]'
+   ```
 
-    Navigate into your new site’s directory and start it up.
+
+2. **Run the project**
+
+    Navigate into the directory and run command below
 
     ```shell
-    cd my-hello-world-starter/
     gatsby develop
     ```
 
-1.  **Open the source code and start editing!**
+3. **Open the browser**
 
-    Your site is now running at `http://localhost:8000`!
+    The site is now accessible at `http://localhost:8000`
 
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby Tutorial](https://www.gatsbyjs.com/docs/tutorial/part-4/#use-graphiql-to-explore-the-data-layer-and-write-graphql-queries)._
+## Timeline
 
-    Open the `my-hello-world-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+- **30 minutes** to create the HTML and add the svg logos
+- **25 minutes** to add mailchimp integration
+- **2 hours 30** to style everything with css and add responsiveness (30min for global css, 1h for desktop, 30min for tablet, 20min for mobile, 10min to fix what got broken)
+- **25 minutes** to do the SelectCountry component
+- **10 minutes** to add the fonts
 
-## 🚀 Quick start (Gatsby Cloud)
+Not included in the 4h total :
+- **30 minutes** to crete git repo, browse figma, create Mailchimp account and browse doc
+- **10 minutes** to publish on Netlify
+- **20 minutes** to write this README from the notes taken during the task
 
-Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
+## Improvements
 
-[<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-hello-world)
+There are a few significant features that I did not get the time to implement 
+by lack of time. Here they are in decreasing order by most important to least
 
-## 🧐 What's inside?
+* Make the response from Mailchimp and loading state prettier
+* Fix appearance on Safari of checkbox and select
+* Handle failure cases (add error status on Inputs)
+* Handle all potential states of inputs and buttons (e.g. error, active, focused, pressed...)
+* Hover animations (e.g. on links, buttons, etc for better ux and appearance)
+* Better hamburger menu (+ cross icon when open)
+* Appearance on screens bigger than 1920px
+* Fix arrow in select component to make it prettier
+* Fix appearance of checkbox to make it like in figma
+* Propel in text instead of svg for accessibility reasons
+* Logo size to fix (varies in size between mobile and desktop)
 
-A quick look at the top-level files and directories you'll see in a Gatsby project.
 
-    .
-    ├── node_modules
-    ├── src
-    ├── .gitignore
-    ├── .prettierrc
-    ├── gatsby-browser.js
-    ├── gatsby-config.js
-    ├── gatsby-node.js
-    ├── gatsby-ssr.js
-    ├── LICENSE
-    ├── package-lock.json
-    ├── package.json
-    └── README.md
+* Code improvements and refactoring
+  * Split index into several files (a given file for styles, more components, a bit less copy paste)
+  * Add all palette into global css (e.g. typography values, spacing)
+  * Put colors in variable for reuse (e.g. assign #242424 to a --charcoal variable in :root pseudo-class for better reusability )
+  * Margin component (instead of the MB24, MB40, etc)
 
-1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
 
-2.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
 
-3.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
 
-4.  **`.prettierrc`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
 
-5.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-browser/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
 
-6.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/) for more detail).
 
-7.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
 
-8.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-ssr/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
+## Decisions
 
-9.  **`LICENSE`**: This Gatsby starter is licensed under the 0BSD license. This means that you can see this file as a placeholder and replace it with your own license.
-
-10. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
-
-11. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
-
-12. **`README.md`**: A text file containing useful reference information about your project.
-
-## 🎓 Learning Gatsby
-
-Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.com/). Here are some places to start:
-
-- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.com/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
-
-- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.com/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
-
-## 💫 Deploy
-
-[Build, Deploy, and Host On The Only Cloud Built For Gatsby](https://www.gatsbyjs.com/products/cloud/)
-
-Gatsby Cloud is an end-to-end cloud platform specifically built for the Gatsby framework that combines a modern developer experience with an optimized, global edge network.
-
-<!-- AUTO-GENERATED-CONTENT:END -->
+To create a functioning version in the allocated 4 hours I took a few 
+decisions that would have been either fixed with more time given 
+or at least discussed with designers.
+* Phone number as a text input for now (would probably need 30 more minutes to 
+handle the country code and country selection interaction)
+* Keep background grey everywhere (background is white for tablets and mobiles in figma)
+* Added a star to Email to indicate the field is required (with more time I would 
+have made the field highlighted when trying to submit while incorrect) 

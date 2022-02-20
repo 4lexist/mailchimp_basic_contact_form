@@ -1,0 +1,15 @@
+@font-face {
+    font-family: "TWK Lausanne";
+    src: local('TWK Lausanne'), url("../fonts/TWKLausanne-300.woff2") format("woff2"), url("../fonts/TWKLausanne-300.woff") format("woff");
+    font-weight: 300 normal;
+    font-style: normal;
+    font-display: fallback;
+}
+
+@font-face {
+    font-family: "NB International Pro";
+    src: url("../fonts/nbinternationalpromono-webfont.woff2") format("woff2"), url("../fonts/nbinternationalpromono-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: fallback;
+}

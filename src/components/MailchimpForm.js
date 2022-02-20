@@ -7,6 +7,7 @@ import styled from "styled-components"
 import { minDesktopL, minTablet } from "../styles/breakpoints"
 
 const Label = styled.label`
+  font-family: "NB International Pro", monospace, sans-serif;
   text-transform: uppercase;
   font-size: 1.4rem;
   line-height: 1.8rem;

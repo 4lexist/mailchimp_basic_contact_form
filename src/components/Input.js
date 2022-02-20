@@ -6,6 +6,7 @@ const Container = styled.div`
 `
 
 const Label = styled.label`
+  font-family: "NB International Pro", monospace, sans-serif;
   text-transform: uppercase;
   display: block;
   font-size: 1.4rem;

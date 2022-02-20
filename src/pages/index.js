@@ -3,9 +3,9 @@ import styled from "styled-components"
 
 import MailchimpForm from "../components/MailchimpForm"
 
-import PropelLogo from "../assets/brandmark.svg"
-import PropelLogoAndName from "../assets/logo_and_name.svg"
-import Hamburger from "../assets/hamburger.svg"
+import PropelLogo from "../assets/svg/brandmark.svg"
+import PropelLogoAndName from "../assets/svg/logo_and_name.svg"
+import Hamburger from "../assets/svg/hamburger.svg"
 
 import { GlobalStyles } from "../styles/global.styles"
 
@@ -84,7 +84,7 @@ const Main = styled.main`
 
 const TitleContainer = styled.div`
   max-width: 52rem;
-  @media (min-width: ${minDesktopL}px) {
+  @media (min-width: ${minDesktop}px) {
     max-width: none;
   }
 
@@ -104,6 +104,7 @@ const TitleContainer = styled.div`
 `
 
 const Label = styled.label`
+  font-family: "NB International Pro", monospace, sans-serif;
   text-transform: uppercase;
   font-size: 1.4rem;
   line-height: 1.8rem;
@@ -130,7 +131,7 @@ const ContactPage = () => {
   const isDesktop = useDesktopMediaQuery()
   const isMobile = useMobileMediaQuery()
 
-  const [isMenuVisible, setMenuVisible] = React.useState(true)
+  const [isMenuVisible, setMenuVisible] = React.useState(false)
 
   return (
     <div onClick={isMenuVisible ? () => setMenuVisible(false) : null}>
